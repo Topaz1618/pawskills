@@ -85,7 +85,7 @@ Important:
 - You must explicitly state whether a value is a default value or an example value.
 - You must explicitly state whether a key is framework-defined or project-defined.
 
-4. Core Concepts
+# 4. Core Concepts
 
 After the minimal demo, explain the core concepts of the tool.
 
@@ -101,7 +101,7 @@ Examples:
 - Hydra: config group, defaults list, override, DictConfig
 - CLI tools: subcommand, flag, positional argument, config file
 
-5. Common Operations
+# 5. Common Operations
 
 List the most common operations, and use the following format for each:
 - Operation Name
@@ -117,7 +117,7 @@ Example
 - Explain the output or effect
 - Explain what happens after 
 
-6. Parameter Reference (Must Be Complete)
+# 6. Parameter Reference (Must Be Complete)
 For all key functions/decorators/command parameters/configuration fields, break them down as follows:
 
 - Parameter name / field name
@@ -137,7 +137,7 @@ Special requirements:
 - You must distinguish official library/tool parameters from user-defined fields
 - You must distinguish example values from real default values
 
-7. Configuration File / Section / Key Reference (If Applicable)
+# 7. Configuration File / Section / Key Reference (If Applicable)
 
 If the tool involves YAML/JSON/TOML/CLI config, you must explain specifically:
 
@@ -152,7 +152,7 @@ If the tool involves YAML/JSON/TOML/CLI config, you must explain specifically:
 
 Do not merely say “this is a config item.” You must clearly identify the field type and role.
 
-8. Override Rules and Precedence
+# 8. Override Rules and Precedence
 
 If the tool supports any of the following:
 
@@ -168,7 +168,7 @@ Then you must explain:
 - What the precedence order is
 - When each source takes effect
 
-9. Output Style Requirements (Mandatory)
+# 9. Output Style Requirements (Mandatory)
 - Formal, professional, technical-document style
 - The goal is quickstart guidance, not an encyclopedia
 - Demo first, then explanation, then expansion
