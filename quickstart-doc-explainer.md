@@ -30,7 +30,7 @@ Requirements:
 - Do not use vague metaphors
 - Do not only list features; explain its role and positioning
 
----
+
 
 # 2. Minimal Runnable Example (Must Appear First)
 Immediately after the overview, provide a minimal demo.
@@ -48,7 +48,7 @@ If it is a library:
 If it is a CLI tool:
 - Provide a minimal runnable command
 
----
+
 
 # 3. Section-by-Section Analysis of the Minimal Example (Required)
 This is the core requirement.
@@ -68,17 +68,17 @@ You must analyze the minimal demo above and explain:
 For example, when explaining a configuration, you must explicitly write in the following style:
 
 conf/config.yaml
-```
-# Hydra reserved control field "defaults"; this is not a normal business field.
-defaults:
-  # "db" is the config group name. "mysql" is the option name under that group.
-  # The typical file path is usually conf/db/mysql.yaml.
-  - db: mysql
-
-# Not a Hydra reserved field. "app_name" is a user-defined field.
-# "demo" is an example value, not a framework default.
-app_name: demo
-```
+  ```
+  # Hydra reserved control field "defaults"; this is not a normal business field.
+  defaults:
+    # "db" is the config group name. "mysql" is the option name under that group.
+    # The typical file path is usually conf/db/mysql.yaml.
+    - db: mysql
+  
+  # Not a Hydra reserved field. "app_name" is a user-defined field.
+  # "demo" is an example value, not a framework default.
+  app_name: demo
+  ```
 Important:
 
 - You must explicitly state whether a field is reserved or user-defined.
