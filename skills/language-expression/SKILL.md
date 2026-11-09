@@ -1,7 +1,7 @@
 ---
 name: language-expression
 description: Language expression and information communication standard. Requires natural, complete, and accurate expression, and forbids self-invented compressed terms, vague terminology, and mechanical phrasing.
-trigger: 表达, 措辞, 写作, 文案, 文档, 命名, 标题, 总结, 汇报, 注释, terminology, writing, naming
+trigger: 表达, 措辞, 写作, 文案, 文档, 命名, 标题, 总结, 汇报, 注释, 日志, 错误信息, 交付报告, 口语化, 术语, terminology, writing, naming, colloquial, slang, jargon
 ---
 
 # Language Expression and Information Communication Standard
@@ -59,6 +59,8 @@ Forbidden:
 
 English terminology may be retained, but readers must be able to understand it.
 
+Section VIII states the scope rule that governs every form of output covered by this standard.
+
 ## IV. Headings and Field Naming
 
 Headings should directly express their topic.
@@ -104,7 +106,47 @@ Before delivering, check:
 5. Was brevity achieved at the cost of semantics?
 6. Can someone who did not participate in the task understand it directly?
 
-## VIII. Final Principle
+## VIII. Colloquial Expression and Non-Standard Terminology Are Forbidden
+
+All user-facing content must use natural, accurate, and formal language.
+
+This covers every form of output, not only technical documentation:
+
+- Conversational replies.
+- Technical documentation.
+- Code comments.
+- Names of functions, variables, modules, files, and branches.
+- Log messages.
+- Error messages.
+- Delivery reports.
+- Explanatory text of any kind.
+
+### 8.1 Strictly Forbidden
+
+1. Substituting conversational, colloquial, or casual phrasing for a formal statement.
+2. Using internet slang, internal jargon, or non-standard industry expressions.
+3. Inventing abstract concepts, compressed terms, or spliced words in pursuit of conciseness or an appearance of professionalism.
+4. Using terms whose meaning is vague and which lack a clear technical definition.
+5. Packaging ordinary technical concepts into unnecessary abstract expressions.
+6. Sacrificing the accuracy and completeness of the language for the sake of visual regularity or stylistic consistency.
+
+### 8.2 Terminology Rules
+
+- Prefer the established and general terminology of software engineering and computing.
+- Prefer the names already used in the project code, the data structures, and the existing technical specifications.
+- Distinct technical concepts must be distinguished accurately and must not be conflated.
+- Professional terminology serves accurate expression; it is not a device for manufacturing an appearance of professionalism.
+- When a term is not necessary, use clear and accurate natural language directly.
+
+### 8.3 Scope
+
+This standard applies to all languages, all forms of output, and all project modules. It is not limited to technical documentation.
+
+**Final requirement: language must be natural, formal, accurate, and specific. Colloquial expression is forbidden, invented jargon is forbidden, and the misuse of abstract terminology is forbidden.**
+
+---
+
+## IX. Final Principle
 
 It is acceptable to be concise, but not vague.
 
