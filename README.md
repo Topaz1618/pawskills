@@ -1,18 +1,17 @@
-# Agent Engineering Standards
+# Pawskills
+PAWSkills provides a set of engineering quality and behavioral standards for AI agents, requiring them to preserve genuine, complete, and traceable engineering evidence that humans can independently inspect and verify.
 
-A curated set of **14 engineering standards for AI coding agents**, distributed as portable Markdown skills.
+These standards are grounded in recurring failures observed in real-world software development, not theoretical assumptions: re-running work that has already been completed, duplicating existing functions, delivering modules without defined interface contracts, replacing raw execution logs with polished summaries, and claiming task completion without actual verification.
 
-Every standard is a self-contained instruction document. An agent that reads one knows exactly what is expected of it: how to scope a task, when to reuse existing code, what to log, how to verify, and how to report results honestly.
+The core goal of PAWSkills is to govern agent engineering behavior, prevent black-box development, and ensure that humans always retain the ability to independently understand, inspect, verify, and maintain the software they build.
+
+The curated set of **14 engineering standards for AI coding agents**, distributed as portable Markdown skills.
+
+Each standard is a self-contained instruction document. By reading a standard, an agent can clearly understand the requirements it must follow: how to define task scope, when to reuse existing code, what logs to record, how to verify results, and how to report completed work honestly.
+
+The core goal of PAWSkills is to govern agent engineering behavior, prevent black-box development, and ensure that humans can always independently understand, inspect, verify, and maintain software built by AI.
 
 [简体中文](README.zh-CN.md)
-
----
-
-## Why This Exists
-
-AI coding agents fail in predictable ways. They re-run work that was already done, duplicate functions that already exist, ship interfaces nobody documented, produce logs that hide failures, claim tests passed without running them, and describe plans as completed work.
-
-Each standard here targets one of those failure modes. Together they define what "done" means for an agent.
 
 ---
 
