@@ -1,0 +1,8 @@
+name: lightweight
+description: Minimum guardrails for small or exploratory work.
+
+skills:
+  - task-execution-governance
+  - testing-verification
+  - unfinished-work-tracking
+  - explicit-instruction-fidelity
