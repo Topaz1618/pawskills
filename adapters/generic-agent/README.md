@@ -109,9 +109,9 @@ Use a profile as the starting point, then adjust.
 | Profile | Standards | Best for |
 |---|---|---|
 | [`full`](../../profiles/full.yaml) | All | A shared codebase with real downstream cost |
-| [`development`](../../profiles/development.yaml) | 8 | Day-to-day feature work |
-| [`data`](../../profiles/data.yaml) | 7 | Data pipelines, analysis, and research |
-| [`lightweight`](../../profiles/lightweight.yaml) | 3 | Small or exploratory work |
+| [`development`](../../profiles/development.yaml) | 10 | Day-to-day feature work |
+| [`data`](../../profiles/data.yaml) | 9 | Data pipelines, analysis, and research |
+| [`lightweight`](../../profiles/lightweight.yaml) | 5 | Small or exploratory work |
 
 Each profile has a README describing exactly what it enforces and what it omits.
 

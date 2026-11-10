@@ -128,6 +128,7 @@ A standard that is only honoured within one session is not a standard; it is a h
 | Facts and interpretation separated | `data-audit-reproducibility`, `production-logging`, `testing-verification` |
 | Human auditability | `engineering-transparency`, `technical-documentation`, `data-audit-reproducibility` |
 | Scope before execution | `task-execution-governance`, `explicit-instruction-fidelity` |
+| User intent precedes the agent's plan | `user-intent-priority`, `explicit-instruction-fidelity` |
 | Reuse before creation | `code-asset-inventory`, `data-first-execution` |
 | Interfaces are contracts | `interface-contract` |
 | Incremental execution | `data-first-execution`, `task-execution-governance` |
@@ -155,4 +156,5 @@ A third case exists: the standard and this document agree, and the current situa
 - [Terminology](terminology.md) — the vocabulary these standards use, and what each term excludes.
 - [Audit Data Model](audit-data-model.md) — the concrete record structure behind `data-audit-reproducibility`.
 - [Task Execution Governance](../skills/task-execution-governance/SKILL.md) — how a task is scoped and which standards apply.
+- [User Intent Priority](../skills/user-intent-priority/SKILL.md) — how a user message is classified and what response it calls for.
 - [Explicit Instruction Fidelity](../skills/explicit-instruction-fidelity/SKILL.md) — the rules for scope fidelity.

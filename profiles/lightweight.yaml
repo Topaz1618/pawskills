@@ -3,6 +3,7 @@ description: Minimum guardrails for small or exploratory work.
 
 skills:
   - task-execution-governance
+  - user-intent-priority
   - testing-verification
   - unfinished-work-tracking
   - explicit-instruction-fidelity

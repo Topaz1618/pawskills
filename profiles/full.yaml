@@ -3,6 +3,7 @@ description: Complete AI agent engineering standards.
 
 skills:
   - task-execution-governance
+  - user-intent-priority
   - data-first-execution
   - code-asset-inventory
   - interface-contract

@@ -31,6 +31,7 @@ Select the corresponding standard based on the actual task.
 | Task Type | Skills to Load |
 |---|---|
 | All engineering tasks | This standard, unfinished-work-tracking |
+| Any user message, before acting on it | user-intent-priority |
 | Data analysis and data processing | data-first-execution |
 | Code asset inspection and functional reuse | code-asset-inventory |
 | Adding or modifying modules | interface-contract, engineering-transparency |
@@ -52,9 +53,10 @@ When standards conflict, resolve them in the following order:
 1. The user's explicit current requirements.
 2. Project-level architecture, data security, and compatibility constraints.
 3. task-execution-governance.
-4. engineering-transparency.
-5. Other specialized Skills.
-6. The Agent's own chosen implementation approach.
+4. user-intent-priority.
+5. engineering-transparency.
+6. Other specialized Skills.
+7. The Agent's own chosen implementation approach.
 
 A specialized Skill may supplement an upper-level standard, but may not overturn it without reason.
 
@@ -172,7 +174,15 @@ When a problem related to the current task is discovered:
 
 Do not expand the task scope for the sake of opportunistic optimization.
 
-## IX. Final Principle
+## IX. User Intent Recognition and Response Priority
+
+Every user message must be classified before the agent acts on it. A question must be answered before anything is executed, and a message arriving during an autonomous task interrupts that task.
+
+The classification categories, the interruption rules, the tool invocation gate, and the response requirements are specified in `user-intent-priority`.
+
+---
+
+## X. Final Principle
 
 The Agent's goal is not to complete as many operations as possible.
 

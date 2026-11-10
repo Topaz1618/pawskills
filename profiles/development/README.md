@@ -2,7 +2,7 @@
 
 **Machine-readable definition:** [`../development.yaml`](../development.yaml)
 
-**Skill count:** 9
+**Skill count:** 10
 
 ---
 
@@ -20,6 +20,7 @@ Typical situations:
 ## What This Profile Enforces
 
 - The task is classified before execution; checks scale with the size of the change.
+- Every user message is classified before acting; a question is answered before anything is executed, and a message arriving mid-task interrupts the autonomous workflow.
 - Existing modules and functions are inspected before a new implementation is written.
 - New or modified modules have a defined input contract, output contract, and invocation contract.
 - Logs record what actually happened, including failures and fallback paths.

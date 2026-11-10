@@ -3,6 +3,7 @@ description: Data auditing, processing and reproducibility standards.
 
 skills:
   - task-execution-governance
+  - user-intent-priority
   - data-first-execution
   - data-audit-reproducibility
   - production-logging

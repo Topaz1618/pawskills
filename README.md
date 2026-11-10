@@ -5,7 +5,7 @@ These standards are grounded in recurring failures observed in real-world softwa
 
 The core goal of PAWSkills is to govern agent engineering behavior, prevent black-box development, and ensure that humans always retain the ability to independently understand, inspect, verify, and maintain the software they build.
 
-The curated set of **14 engineering standards for AI coding agents**, distributed as portable Markdown skills.
+The curated set of **15 engineering standards for AI coding agents**, distributed as portable Markdown skills.
 
 Each standard is a self-contained instruction document. By reading a standard, an agent can clearly understand the requirements it must follow: how to define task scope, when to reuse existing code, what logs to record, how to verify results, and how to report completed work honestly.
 
@@ -15,24 +15,25 @@ The core goal of PAWSkills is to govern agent engineering behavior, prevent blac
 
 ---
 
-## The 14 Standards
+## The 15 Standards
 
 | # | Skill | Core responsibility |
 |---|---|---|
 | 01 | `task-execution-governance` | Task identification, execution scope, standard coordination |
-| 02 | `data-first-execution` | Prefer existing data; forbid unjustified re-runs |
-| 03 | `code-asset-inventory` | Code asset inventory and function reuse |
-| 04 | `interface-contract` | Interface contracts and unified data structures |
-| 05 | `data-audit-reproducibility` | Raw data, data audit, reproducibility |
-| 06 | `production-logging` | Raw logs, execution path, exception records |
-| 07 | `testing-verification` | Testing, verification, independent review |
-| 08 | `engineering-transparency` | Engineering transparency; file and function descriptions |
-| 09 | `technical-documentation` | Authenticity and completeness of technical documentation |
-| 10 | `documentation-structure` | Documentation organization and reading order |
-| 11 | `language-expression` | Language expression and terminology |
-| 12 | `change-report-delivery` | Change reports and delivery |
-| 13 | `unfinished-work-tracking` | Tracking unfinished work |
-| 14 | `explicit-instruction-fidelity` | Following explicit instructions without unauthorized reinterpretation |
+| 02 | `user-intent-priority` | User intent recognition, response priority, tool call gating |
+| 03 | `data-first-execution` | Prefer existing data; forbid unjustified re-runs |
+| 04 | `code-asset-inventory` | Code asset inventory and function reuse |
+| 05 | `interface-contract` | Interface contracts and unified data structures |
+| 06 | `data-audit-reproducibility` | Raw data, data audit, reproducibility |
+| 07 | `production-logging` | Raw logs, execution path, exception records |
+| 08 | `testing-verification` | Testing, verification, independent review |
+| 09 | `engineering-transparency` | Engineering transparency; file and function descriptions |
+| 10 | `technical-documentation` | Authenticity and completeness of technical documentation |
+| 11 | `documentation-structure` | Documentation organization and reading order |
+| 12 | `language-expression` | Language expression and terminology |
+| 13 | `change-report-delivery` | Change reports and delivery |
+| 14 | `unfinished-work-tracking` | Tracking unfinished work |
+| 15 | `explicit-instruction-fidelity` | Following explicit instructions without unauthorized reinterpretation |
 
 ---
 
@@ -50,6 +51,7 @@ agent-engineering-standards/
 │
 ├── skills/
 │   ├── task-execution-governance/SKILL.md
+│   ├── user-intent-priority/SKILL.md
 │   ├── data-first-execution/SKILL.md
 │   ├── code-asset-inventory/SKILL.md
 │   ├── interface-contract/SKILL.md
@@ -99,14 +101,14 @@ agent-engineering-standards/
 
 ## Profiles
 
-Not every team wants all 14 standards. A data team may need four; a solo developer may want two. Profiles are machine-readable YAML files that declare which skills a given working style requires.
+Not every team wants all 15 standards. A data team may need four; a solo developer may want two. Profiles are machine-readable YAML files that declare which skills a given working style requires.
 
 | Profile | Skills | Intended for |
 |---|---|---|
-| [`full.yaml`](profiles/full.yaml) | All 14 | Teams enforcing a complete engineering baseline |
-| [`data.yaml`](profiles/data.yaml) | 8 | Data engineering, analytics, and research work |
-| [`development.yaml`](profiles/development.yaml) | 9 | Day-to-day feature development |
-| [`lightweight.yaml`](profiles/lightweight.yaml) | 4 | Minimal guardrails for small or exploratory work |
+| [`full.yaml`](profiles/full.yaml) | All 15 | Teams enforcing a complete engineering baseline |
+| [`data.yaml`](profiles/data.yaml) | 9 | Data engineering, analytics, and research work |
+| [`development.yaml`](profiles/development.yaml) | 10 | Day-to-day feature development |
+| [`lightweight.yaml`](profiles/lightweight.yaml) | 5 | Minimal guardrails for small or exploratory work |
 
 Each profile directory contains a README explaining when to choose it and what it enforces.
 

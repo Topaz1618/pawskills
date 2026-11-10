@@ -2,7 +2,7 @@
 
 **Machine-readable definition:** [`../data.yaml`](../data.yaml)
 
-**Skill count:** 8
+**Skill count:** 9
 
 ---
 
@@ -20,6 +20,7 @@ Typical situations:
 ## What This Profile Enforces
 
 - Existing data and historical results are checked before any re-collection or recomputation.
+- Every user message is classified before acting; a question is answered before anything is executed, and a message arriving mid-task interrupts the autonomous workflow.
 - Incremental execution only: only the missing portion is added, never the whole dataset.
 - Raw data is stored separately from processed data, with source, time, hash, and size recorded.
 - Every significant transformation records its inputs, outputs, rules, and record counts.

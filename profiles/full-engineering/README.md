@@ -2,7 +2,7 @@
 
 **Machine-readable definition:** [`../full.yaml`](../full.yaml)
 
-**Skill count:** 14 (all standards)
+**Skill count:** 15 (all standards)
 
 ---
 
@@ -20,6 +20,7 @@ Typical situations:
 ## What This Profile Enforces
 
 - Every task is scoped before execution; the required checks depend on the size of the change.
+- Every user message is classified before acting; a question is answered before anything is executed, and a message arriving mid-task interrupts the autonomous workflow.
 - Existing data and existing code are inspected before anything is re-run or re-written.
 - New modules have a defined input contract, output contract, and invocation contract.
 - Raw data is preserved separately from processed results, and every transformation is recorded.

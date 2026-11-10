@@ -2,7 +2,7 @@
 
 **Machine-readable definition:** [`../lightweight.yaml`](../lightweight.yaml)
 
-**Skill count:** 4
+**Skill count:** 5
 
 ---
 
@@ -20,6 +20,7 @@ Typical situations:
 ## What This Profile Enforces
 
 - The task is identified and scoped before execution, and unrelated operations are not added.
+- Every user message is classified before acting; a question is answered before anything is executed, and a message arriving mid-task interrupts the autonomous workflow.
 - Tests are actually executed, and results are reported as PASS, FAIL, BLOCKED, NOT_RUN, or NOT_APPLICABLE.
 - Unfinished work is recorded instead of being silently dropped or described as complete.
 - Explicitly specified operations, paths, and file scopes are followed literally, without unauthorized reinterpretation or expansion.

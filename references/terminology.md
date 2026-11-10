@@ -97,7 +97,6 @@ Governed by `explicit-instruction-fidelity`.
 ---
 
 ## F
-
 ### Fallback path
 An alternate route taken when a primary source or step fails. The use of a fallback is itself an event that must be recorded.
 
@@ -278,6 +277,13 @@ Excludes: a mental note. Work that is only known to the agent is lost.
 
 Governed by `unfinished-work-tracking`.
 
+### User intent
+What the user's current message is asking for, classified as a question, a discussion, an execution instruction, or a mix of the two.
+
+Excludes: the agent's inference of what the user probably wants. Intent comes from the message itself, not from the agent's assessment of the user's goals.
+
+Governed by `user-intent-priority`.
+
 ---
 
 ## V
@@ -316,4 +322,5 @@ Governed by `data-audit-reproducibility`, `scripts/install.py`.
 
 - [Engineering Principles](engineering-principles.md) — why the standards exist.
 - [Audit Data Model](audit-data-model.md) — the concrete record structures.
+- [User Intent Priority](../skills/user-intent-priority/SKILL.md) — how a user message is classified and what it calls for.
 - [Task Execution Governance](../skills/task-execution-governance/SKILL.md) — how scope and standards are selected.
