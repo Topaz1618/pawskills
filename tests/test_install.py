@@ -60,6 +60,16 @@ def test_codex_user_scope(project: Path) -> None:
     assert target == (Path.home() / ".agents" / "skills").resolve()
 
 
+def test_cursor_project_scope(project: Path) -> None:
+    target = installer.resolve_target("cursor", "project", project)
+    assert target == (project / ".cursor" / "skills").resolve()
+
+
+def test_cursor_user_scope(project: Path) -> None:
+    target = installer.resolve_target("cursor", "user", project)
+    assert target == (Path.home() / ".cursor" / "skills").resolve()
+
+
 def test_unknown_agent_is_rejected(project: Path) -> None:
     with pytest.raises(installer.InstallError):
         installer.resolve_target("unknown-agent", "project", project)
@@ -124,6 +134,12 @@ def test_claude_code_profile_install(project: Path) -> None:
 def test_codex_profile_install(project: Path) -> None:
     run(["--agent", "codex", "--profile", "lightweight", "--project-dir", str(project)])
     root = project / ".agents" / "skills"
+    assert (root / "task-execution-governance" / "SKILL.md").is_file()
+
+
+def test_cursor_profile_install(project: Path) -> None:
+    run(["--agent", "cursor", "--profile", "lightweight", "--project-dir", str(project)])
+    root = project / ".cursor" / "skills"
     assert (root / "task-execution-governance" / "SKILL.md").is_file()
 
 

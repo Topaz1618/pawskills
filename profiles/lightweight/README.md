@@ -2,7 +2,7 @@
 
 **Machine-readable definition:** [`../lightweight.yaml`](../lightweight.yaml)
 
-**Skill count:** 5
+**Skill count:** 6
 
 ---
 
@@ -24,6 +24,7 @@ Typical situations:
 - Tests are actually executed, and results are reported as PASS, FAIL, BLOCKED, NOT_RUN, or NOT_APPLICABLE.
 - Unfinished work is recorded instead of being silently dropped or described as complete.
 - Explicitly specified operations, paths, and file scopes are followed literally, without unauthorized reinterpretation or expansion.
+- Nothing published to a public repository identifies a person, an organization, an internal system, or the tool that produced it.
 
 ## What This Profile Omits
 

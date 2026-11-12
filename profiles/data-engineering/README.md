@@ -2,7 +2,7 @@
 
 **Machine-readable definition:** [`../data.yaml`](../data.yaml)
 
-**Skill count:** 9
+**Skill count:** 10
 
 ---
 
@@ -31,6 +31,7 @@ Typical situations:
 - Deliverables include real data samples, not fabricated ones.
 - Unfinished data work is recorded.
 - Explicitly specified operations, paths, and file scopes are followed literally, without unauthorized reinterpretation or expansion.
+- Nothing published to a public repository identifies a person, an organization, an internal system, or the tool that produced it.
 
 ## What This Profile Omits
 

@@ -9,12 +9,14 @@ Supported agents:
 
     claude-code   project: .claude/skills/    user: ~/.claude/skills/
     codex         project: .agents/skills/    user: ~/.agents/skills/
+    cursor        project: .cursor/skills/    user: ~/.cursor/skills/
 
 Usage examples:
 
     python scripts/install.py --list
     python scripts/install.py --agent codex --profile full
     python scripts/install.py --agent claude-code --profile full --scope user
+    python scripts/install.py --agent cursor --profile full --scope user
     python scripts/install.py --agent codex --skill production-logging
     python scripts/install.py --agent codex --profile full --dry-run
     python scripts/install.py --agent codex --profile full --uninstall
@@ -47,6 +49,7 @@ STATUS_WARNING = "WARNING"
 AGENTS: Dict[str, Tuple[str, str]] = {
     "claude-code": (".claude/skills", ".claude/skills"),
     "codex": (".agents/skills", ".agents/skills"),
+    "cursor": (".cursor/skills", ".cursor/skills"),
 }
 
 

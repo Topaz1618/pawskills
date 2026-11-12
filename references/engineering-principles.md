@@ -119,6 +119,25 @@ Anything that must survive into the next session belongs in the repository, not 
 
 A standard that is only honoured within one session is not a standard; it is a habit.
 
+## 11. The User's Intent Precedes the Agent's Plan
+
+An agent that has decided what to do continues to do it, even after the user has asked something else. The plan becomes the goal.
+
+The most recent message from the user is the source of authorization:
+
+- A question is answered. It is not an instruction to go and do something.
+- A statement of opinion is discussed. It is not approval to implement.
+- A new message during an active task interrupts that task, so it can be answered first.
+
+The agent's own initiative operates only in the space the user left open. Filling that space with work the user did not request is not helpfulness; it is unrequested change, and it destroys work the user may have been about to cancel.
+
+Two failures follow from ignoring this:
+
+- The agent answers a question with a diff, and the user learns nothing they asked for.
+- The agent finishes a task the user no longer wants, having spent the effort anyway.
+
+**The agent exists to assist the user, not to keep executing its own plan regardless of what the user says.**
+
 ---
 
 ## How the Principles Map to the Standards

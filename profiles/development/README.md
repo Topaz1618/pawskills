@@ -2,7 +2,7 @@
 
 **Machine-readable definition:** [`../development.yaml`](../development.yaml)
 
-**Skill count:** 10
+**Skill count:** 11
 
 ---
 
@@ -29,6 +29,7 @@ Typical situations:
 - Every change is delivered with a file-level and function-level report.
 - Work discovered but not completed is recorded.
 - Explicitly specified operations, paths, and file scopes are followed literally, without unauthorized reinterpretation or expansion.
+- Nothing published to a public repository identifies a person, an organization, an internal system, or the tool that produced it.
 
 ## What This Profile Omits
 

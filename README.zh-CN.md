@@ -1,6 +1,6 @@
 # AI Agent 工程规范集
 
-面向 AI 编码 Agent 的 **15 条工程规范**，以可移植的 Markdown Skill 形式分发。
+面向 AI 编码 Agent 的 **16 条工程规范**，以可移植的 Markdown Skill 形式分发。
 
 每一条规范都是一份自包含的指令文档。Agent 读完之后，会确切知道对自己的要求：任务范围如何界定、已有代码何时必须复用、日志该记录什么、如何验证、以及如何如实汇报结果。
 
@@ -10,13 +10,23 @@
 
 ## 这套规范解决什么问题
 
-AI 编码 Agent 的失败方式是有规律可循的。它们会重跑已经完成的工作、重复实现已经存在的函数、交付无人记录过契约的接口、写出掩盖失败的日志、在没有运行的情况下宣称测试通过，并把计划描述成已完成的工作。
+AI 编码 Agent 的失败方式是有规律可循的。这些规范来自真实软件开发中反复出现的失败，而不是理论推演：
+
+- 重跑已经完成的工作。
+- 重复实现已经存在的函数。
+- 交付没有明确定义接口契约的模块。
+- 用加工过的摘要替代原始执行日志。
+- 在没有实际验证的情况下宣称任务完成。
+- 用户问的是问题，Agent 却去做用户没要求的操作。
+- 把明确的指令改写成 Agent 自己偏好的做法。
+- 用类型声明代替真实数据来描述数据结构。
+- 把计划描述成已完成的工作。
 
 这里每一条规范都针对其中一种失败模式。合在一起，它们定义了 Agent 眼中"完成"的含义。
 
 ---
 
-## 15 条规范
+## 16 条规范
 
 | 序号 | Skill | 核心职责 |
 |---|---|---|
@@ -35,6 +45,7 @@ AI 编码 Agent 的失败方式是有规律可循的。它们会重跑已经完�
 | 13 | `change-report-delivery` | 变更报告与交付 |
 | 14 | `unfinished-work-tracking` | 未完成事项追踪 |
 | 15 | `explicit-instruction-fidelity` | 忠实执行明确指令，禁止擅自改写 |
+| 16 | `repository-publication-hygiene` | 仓库发布卫生；私有引用与工具署名不得进入公开内容 |
 
 ---
 
@@ -65,7 +76,8 @@ agent-engineering-standards/
 │   ├── language-expression/SKILL.md
 │   ├── change-report-delivery/SKILL.md
 │   ├── unfinished-work-tracking/SKILL.md
-│   └── explicit-instruction-fidelity/SKILL.md
+│   ├── explicit-instruction-fidelity/SKILL.md
+│   └── repository-publication-hygiene/SKILL.md
 │
 ├── profiles/
 │   ├── full.yaml
@@ -80,6 +92,7 @@ agent-engineering-standards/
 ├── adapters/
 │   ├── claude-code/README.md
 │   ├── codex/README.md
+│   ├── cursor/README.md
 │   └── generic-agent/README.md
 │
 ├── references/
@@ -93,6 +106,7 @@ agent-engineering-standards/
 │   └── check-links.py
 │
 └── tests/
+    ├── test_install.py
     ├── test_skill_structure.py
     ├── test_frontmatter.py
     └── fixtures/
@@ -102,11 +116,11 @@ agent-engineering-standards/
 
 ## Profiles
 
-不是所有团队都需要全部 15 条规范。数据团队可能只需要 4 条，独立开发者可能只需要 2 条。Profile 是机器可读的 YAML 文件，声明某种工作方式需要哪些 Skill。
+不是所有团队都需要全部 16 条规范。数据团队可能只需要 4 条，独立开发者可能只需要 2 条。Profile 是机器可读的 YAML 文件，声明某种工作方式需要哪些 Skill。
 
 | Profile | 包含规范 | 适用场景 |
 |---|---|---|
-| [`full.yaml`](profiles/full.yaml) | 全部 15 条 | 需要完整工程基线的团队 |
+| [`full.yaml`](profiles/full.yaml) | 全部 16 条 | 需要完整工程基线的团队 |
 | [`data.yaml`](profiles/data.yaml) | 9 条 | 数据工程、分析与研究类工作 |
 | [`development.yaml`](profiles/development.yaml) | 10 条 | 日常功能开发 |
 | [`lightweight.yaml`](profiles/lightweight.yaml) | 5 条 | 小型或探索性工作的最低护栏 |
@@ -131,6 +145,7 @@ python3 scripts/install.py --agent codex --profile full
 |---|---|---|
 | `claude-code` | `.claude/skills/` | `~/.claude/skills/` |
 | `codex` | `.agents/skills/` | `~/.agents/skills/` |
+| `cursor` | `.cursor/skills/` | `~/.cursor/skills/` |
 
 ### 安装范围
 
@@ -220,7 +235,7 @@ trigger: log, logging, logger, 日志, 排错, trace, audit
 ---
 ```
 
-- `name` — 唯一标识。
+- `name` — 唯一标识，必须与 Skill 目录名完全一致。
 - `description` — 这条规范要求什么，以及在什么情况下适用。
 - `trigger` — 应当让 Agent 加载该 Skill 的关键词。
 
@@ -246,7 +261,7 @@ python3 -m pytest tests/ -v           # 运行测试
 
 | 文档 | 内容 |
 |---|---|
-| [工程原则](references/engineering-principles.md) | 所有规范共同遵守的十条原则，以及它们与各条 Skill 的对应关系 |
+| [工程原则](references/engineering-principles.md) | 所有规范共同遵守的十一条原则，以及它们与各条 Skill 的对应关系 |
 | [术语表](references/terminology.md) | 受控词汇，以及本仓库刻意不使用的表达 |
 | [审计数据模型](references/audit-data-model.md) | `data-audit-reproducibility` 背后的具体记录结构 |
 

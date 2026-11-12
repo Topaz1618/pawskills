@@ -2,7 +2,7 @@
 
 **Machine-readable definition:** [`../full.yaml`](../full.yaml)
 
-**Skill count:** 15 (all standards)
+**Skill count:** 16 (all standards)
 
 ---
 
@@ -30,6 +30,7 @@ Typical situations:
 - Work discovered but not completed is recorded rather than silently dropped.
 - Technical documentation reflects the actual implementation.
 - Explicitly specified operations, paths, and file scopes are followed literally, without unauthorized reinterpretation or expansion.
+- Nothing published to a public repository identifies a person, an organization, an internal system, or the tool that produced it.
 
 ## Cost
 

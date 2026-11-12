@@ -1,11 +1,8 @@
 # Pawskills
+
 PAWSkills provides a set of engineering quality and behavioral standards for AI agents, requiring them to preserve genuine, complete, and traceable engineering evidence that humans can independently inspect and verify.
 
-These standards are grounded in recurring failures observed in real-world software development, not theoretical assumptions: re-running work that has already been completed, duplicating existing functions, delivering modules without defined interface contracts, replacing raw execution logs with polished summaries, and claiming task completion without actual verification.
-
-The core goal of PAWSkills is to govern agent engineering behavior, prevent black-box development, and ensure that humans always retain the ability to independently understand, inspect, verify, and maintain the software they build.
-
-The curated set of **15 engineering standards for AI coding agents**, distributed as portable Markdown skills.
+The curated set of **16 engineering standards for AI coding agents**, distributed as portable Markdown skills.
 
 Each standard is a self-contained instruction document. By reading a standard, an agent can clearly understand the requirements it must follow: how to define task scope, when to reuse existing code, what logs to record, how to verify results, and how to report completed work honestly.
 
@@ -15,7 +12,25 @@ The core goal of PAWSkills is to govern agent engineering behavior, prevent blac
 
 ---
 
-## The 15 Standards
+## Why This Exists
+
+AI coding agents fail in predictable ways. These standards are grounded in recurring failures observed in real-world software development, not theoretical assumptions:
+
+- Re-running work that has already been completed.
+- Duplicating functions that already exist.
+- Delivering modules without defined interface contracts.
+- Replacing raw execution logs with polished summaries.
+- Claiming task completion without actual verification.
+- Answering a question by performing work the user did not ask for.
+- Rewriting an explicit instruction into the operation the agent would have preferred.
+- Documenting a data structure as a type declaration instead of showing the actual data.
+- Describing a plan as work that has been completed.
+
+Each standard here targets one of those failure modes. Together they define what "done" means for an agent.
+
+---
+
+## The 16 Standards
 
 | # | Skill | Core responsibility |
 |---|---|---|
@@ -34,6 +49,7 @@ The core goal of PAWSkills is to govern agent engineering behavior, prevent blac
 | 13 | `change-report-delivery` | Change reports and delivery |
 | 14 | `unfinished-work-tracking` | Tracking unfinished work |
 | 15 | `explicit-instruction-fidelity` | Following explicit instructions without unauthorized reinterpretation |
+| 16 | `repository-publication-hygiene` | Repository publication hygiene; private references and tool attribution stay out of published content |
 
 ---
 
@@ -64,7 +80,8 @@ agent-engineering-standards/
 │   ├── language-expression/SKILL.md
 │   ├── change-report-delivery/SKILL.md
 │   ├── unfinished-work-tracking/SKILL.md
-│   └── explicit-instruction-fidelity/SKILL.md
+│   ├── explicit-instruction-fidelity/SKILL.md
+│   └── repository-publication-hygiene/SKILL.md
 │
 ├── profiles/
 │   ├── full.yaml
@@ -92,6 +109,7 @@ agent-engineering-standards/
 │   └── check-links.py
 │
 └── tests/
+    ├── test_install.py
     ├── test_skill_structure.py
     ├── test_frontmatter.py
     └── fixtures/
@@ -101,11 +119,11 @@ agent-engineering-standards/
 
 ## Profiles
 
-Not every team wants all 15 standards. A data team may need four; a solo developer may want two. Profiles are machine-readable YAML files that declare which skills a given working style requires.
+Not every team wants all 16 standards. A data team may need four; a solo developer may want two. Profiles are machine-readable YAML files that declare which skills a given working style requires.
 
 | Profile | Skills | Intended for |
 |---|---|---|
-| [`full.yaml`](profiles/full.yaml) | All 15 | Teams enforcing a complete engineering baseline |
+| [`full.yaml`](profiles/full.yaml) | All 16 | Teams enforcing a complete engineering baseline |
 | [`data.yaml`](profiles/data.yaml) | 9 | Data engineering, analytics, and research work |
 | [`development.yaml`](profiles/development.yaml) | 10 | Day-to-day feature development |
 | [`lightweight.yaml`](profiles/lightweight.yaml) | 5 | Minimal guardrails for small or exploratory work |
@@ -130,6 +148,7 @@ That is the whole setup. The installer copies the skill directories into the tar
 |---|---|---|
 | `claude-code` | `.claude/skills/` | `~/.claude/skills/` |
 | `codex` | `.agents/skills/` | `~/.agents/skills/` |
+| `cursor` | `.cursor/skills/` | `~/.cursor/skills/` |
 
 ### Installation Scope
 
@@ -219,7 +238,7 @@ trigger: log, logging, logger, 日志, 排错, trace, audit
 ---
 ```
 
-- `name` — unique skill identifier.
+- `name` — unique skill identifier. It must equal the skill directory name.
 - `description` — what the standard requires and when it applies.
 - `trigger` — keywords that should cause an agent to load the skill.
 
@@ -245,7 +264,7 @@ These are not standards — the agent is not required to load them. They explain
 
 | Document | Contents |
 |---|---|
-| [Engineering Principles](references/engineering-principles.md) | The ten principles every standard enforces, and how they map to the skills |
+| [Engineering Principles](references/engineering-principles.md) | The eleven principles every standard enforces, and how they map to the skills |
 | [Terminology](references/terminology.md) | The controlled vocabulary, and the terms the repository deliberately avoids |
 | [Audit Data Model](references/audit-data-model.md) | The concrete record structures behind `data-audit-reproducibility` |
 

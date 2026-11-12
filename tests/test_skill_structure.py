@@ -30,6 +30,7 @@ EXPECTED_SKILLS = {
     "change-report-delivery",
     "unfinished-work-tracking",
     "explicit-instruction-fidelity",
+    "repository-publication-hygiene",
 }
 
 EXPECTED_PROFILES = {"full", "development", "data", "lightweight"}

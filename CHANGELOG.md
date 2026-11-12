@@ -11,7 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- `references/engineering-principles.md` — The ten principles underlying every standard, and how they map to the skills.
+- `references/engineering-principles.md` — The eleven principles underlying every standard, and how they map to the skills.
 - `references/terminology.md` — The controlled vocabulary, including the terms the repository deliberately avoids.
 - `references/audit-data-model.md` — Concrete record structures (source, transformation, reconciliation, execution, modification, privacy) behind `data-audit-reproducibility`.
 - `adapters/claude-code/README.md` — Installation and verification guide for the Claude Code layout.
@@ -19,13 +19,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `adapters/generic-agent/README.md` — Four methods for using these standards with an agent that has no dedicated skills directory.
 - `SECURITY.md` — Reporting process, threat model, known limitations, and supported versions.
 - `skills/user-intent-priority/SKILL.md` — User intent recognition and response priority. Classifies every user message as a question, a discussion, an execution instruction, or a mix; requires answering before executing; requires an autonomous task to pause when the user speaks; and gates every tool call on actual authorization.
+- `skills/repository-publication-hygiene/SKILL.md` — Repository publication hygiene. Defines what may and may not reach a public remote: excludes private references, sibling project names, local paths, and unrelated credentials; forbids the agent from adding its own name to any published artifact, including `Co-authored-by` trailers added automatically by an integration; requires the commit message to be read back and cleaned after every commit; requires example configuration files to ship with empty values and the code to fall back to built-in defaults; and requires a pre-publication scan of both the tracked files and the commit history.
 
 ### Changed
 
+- All four profiles now include `repository-publication-hygiene`, so it cannot be opted out of.
+
 - All four profiles now include `explicit-instruction-fidelity`. The standard was previously shipped but not installable through any profile.
 - All four profiles now include `user-intent-priority`.
-- `profiles/*.yaml` skill counts and the profile READMEs updated to match: full 15, development 10, data 9, lightweight 5.
-- `README.md` and `README.zh-CN.md` list all 15 standards; the standards table and repository layout were updated accordingly.
+- `profiles/*.yaml` skill counts and the profile READMEs updated to match: full 16, development 11, data 10, lightweight 6.
+- `README.md` and `README.zh-CN.md` list all 16 standards; the standards table and repository layout were updated accordingly.
 - `task-execution-governance` now references skills by their directory names. The previous references to `engineering-transparency-standard`, `data-audit-reproducibility-standard`, and `production-logging-standard` did not resolve to any skill.
 - `task-execution-governance` section IX was reduced to a pointer to `user-intent-priority`, and `user-intent-priority` was added to its task type table and standard priority list.
 - `technical-documentation` sections IX and X add the natural-language and terminology rules, and the required organization of a functional module document.
