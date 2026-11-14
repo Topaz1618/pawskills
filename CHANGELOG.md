@@ -43,6 +43,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `references/terminology.md` now defines current state, problem, recommendation, to be confirmed, and implementation plan, and `references/engineering-principles.md` maps the new standard to the principle that reasoning is complete before action.
 
 - `tests/test_skill_structure.py` — The expected skill set now includes `engineering-context-completeness`.
+- `scripts/hooks/prepare-commit-msg` — A git hook that strips tool attribution trailers from commit messages while preserving trailers that name real people. Installing it globally removes the need to amend each commit by hand.
 
 ### Fixed
 

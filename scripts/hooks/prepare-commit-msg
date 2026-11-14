@@ -1,0 +1,43 @@
+#!/bin/bash
+#
+# Strip tool attribution trailers from commit messages.
+#
+# Cursor's shell integration appends a "Co-authored-by: Cursor <...>" trailer to
+# commit messages. The repository publication hygiene standard forbids tool
+# attribution in published content, including commit metadata.
+#
+# This hook removes attribution trailers before the commit object is created.
+# It covers the case where the trailer is injected into the message file
+# before git writes the commit.
+
+set -u
+
+MESSAGE_FILE="$1"
+COMMIT_SOURCE="${2:-}"
+
+if [ -z "$MESSAGE_FILE" ] || [ ! -f "$MESSAGE_FILE" ]; then
+    exit 0
+fi
+
+# Only rewrite messages that are about to be committed.
+case "$COMMIT_SOURCE" in
+    message|template|merge|squash) ;;
+    *) exit 0 ;;
+esac
+
+TEMP_FILE="$(mktemp "${MESSAGE_FILE}.XXXXXX")"
+
+# Remove Co-authored-by / Signed-off-by / Generated-with style trailer lines
+# that name a tool, keeping trailers that name real people.
+grep -v -E -i '^[[:space:]]*(co-authored-by|signed-off-by)[[:space:]]*:.*(cursor|claude|chatgpt|openai|gpt-|copilot|codex|gemini|windsurf|aider|cursoragent)[[:space:]]*<' "$MESSAGE_FILE" > "$TEMP_FILE" || true
+
+# Remove "Generated with ..." style footers.
+grep -v -E -i '^[[:space:]]*generated with[[:space:]]' "$TEMP_FILE" > "${TEMP_FILE}.2" || true
+
+if ! cmp -s "$MESSAGE_FILE" "${TEMP_FILE}.2"; then
+    mv "${TEMP_FILE}.2" "$MESSAGE_FILE"
+fi
+
+rm -f "$TEMP_FILE" "${TEMP_FILE}.2"
+
+exit 0

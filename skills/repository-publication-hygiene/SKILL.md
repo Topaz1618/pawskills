@@ -113,6 +113,21 @@ When the integration's automatic attribution cannot be turned off, the agent
 must strip it explicitly rather than leaving it in place. This is a required
 correction step, not an optional one.
 
+A `prepare-commit-msg` git hook performs this suppression automatically before
+the commit object is created. The hook in `scripts/hooks/prepare-commit-msg`
+removes tool-attribution trailers while preserving trailers that name real
+people. It can be installed for all repositories with:
+
+```bash
+mkdir -p ~/.cursor/hooks
+cp scripts/hooks/prepare-commit-msg ~/.cursor/hooks/
+chmod +x ~/.cursor/hooks/prepare-commit-msg
+git config --global core.hooksPath ~/.cursor/hooks
+```
+
+A hook is a convenience, not a substitute for reading the commit message back.
+The agent must still verify the result.
+
 ## 5. Configuration Transparency
 
 **Every configuration value a user is expected to change must be present in
