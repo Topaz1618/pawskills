@@ -148,6 +148,7 @@ Two failures follow from ignoring this:
 | Human auditability | `engineering-transparency`, `technical-documentation`, `data-audit-reproducibility` |
 | Scope before execution | `task-execution-governance`, `explicit-instruction-fidelity` |
 | User intent precedes the agent's plan | `user-intent-priority`, `explicit-instruction-fidelity` |
+| Reasoning is complete before action | `engineering-context-completeness` |
 | Reuse before creation | `code-asset-inventory`, `data-first-execution` |
 | Interfaces are contracts | `interface-contract` |
 | Incremental execution | `data-first-execution`, `task-execution-governance` |
@@ -176,4 +177,5 @@ A third case exists: the standard and this document agree, and the current situa
 - [Audit Data Model](audit-data-model.md) — the concrete record structure behind `data-audit-reproducibility`.
 - [Task Execution Governance](../skills/task-execution-governance/SKILL.md) — how a task is scoped and which standards apply.
 - [User Intent Priority](../skills/user-intent-priority/SKILL.md) — how a user message is classified and what response it calls for.
+- [Engineering Context Completeness](../skills/engineering-context-completeness/SKILL.md) — how the problem context is established and how a change is planned before it is made.
 - [Explicit Instruction Fidelity](../skills/explicit-instruction-fidelity/SKILL.md) — the rules for scope fidelity.

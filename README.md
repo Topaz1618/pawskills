@@ -2,7 +2,7 @@
 
 PAWSkills provides a set of engineering quality and behavioral standards for AI agents, requiring them to preserve genuine, complete, and traceable engineering evidence that humans can independently inspect and verify.
 
-The curated set of **16 engineering standards for AI coding agents**, distributed as portable Markdown skills.
+The curated set of **17 engineering standards for AI coding agents**, distributed as portable Markdown skills.
 
 Each standard is a self-contained instruction document. By reading a standard, an agent can clearly understand the requirements it must follow: how to define task scope, when to reuse existing code, what logs to record, how to verify results, and how to report completed work honestly.
 
@@ -30,26 +30,27 @@ Each standard here targets one of those failure modes. Together they define what
 
 ---
 
-## The 16 Standards
+## The 17 Standards
 
 | # | Skill | Core responsibility |
 |---|---|---|
 | 01 | `task-execution-governance` | Task identification, execution scope, standard coordination |
 | 02 | `user-intent-priority` | User intent recognition, response priority, tool call gating |
-| 03 | `data-first-execution` | Prefer existing data; forbid unjustified re-runs |
-| 04 | `code-asset-inventory` | Code asset inventory and function reuse |
-| 05 | `interface-contract` | Interface contracts and unified data structures |
-| 06 | `data-audit-reproducibility` | Raw data, data audit, reproducibility |
-| 07 | `production-logging` | Raw logs, execution path, exception records |
-| 08 | `testing-verification` | Testing, verification, independent review |
-| 09 | `engineering-transparency` | Engineering transparency; file and function descriptions |
-| 10 | `technical-documentation` | Authenticity and completeness of technical documentation |
-| 11 | `documentation-structure` | Documentation organization and reading order |
-| 12 | `language-expression` | Language expression and terminology |
-| 13 | `change-report-delivery` | Change reports and delivery |
-| 14 | `unfinished-work-tracking` | Tracking unfinished work |
-| 15 | `explicit-instruction-fidelity` | Following explicit instructions without unauthorized reinterpretation |
-| 16 | `repository-publication-hygiene` | Repository publication hygiene; private references and tool attribution stay out of published content |
+| 03 | `engineering-context-completeness` | Problem context, logical chain, implementation plan before change |
+| 04 | `data-first-execution` | Prefer existing data; forbid unjustified re-runs |
+| 05 | `code-asset-inventory` | Code asset inventory and function reuse |
+| 06 | `interface-contract` | Interface contracts and unified data structures |
+| 07 | `data-audit-reproducibility` | Raw data, data audit, reproducibility |
+| 08 | `production-logging` | Raw logs, execution path, exception records |
+| 09 | `testing-verification` | Testing, verification, independent review |
+| 10 | `engineering-transparency` | Engineering transparency; file and function descriptions |
+| 11 | `technical-documentation` | Authenticity and completeness of technical documentation |
+| 12 | `documentation-structure` | Documentation organization and reading order |
+| 13 | `language-expression` | Language expression and terminology |
+| 14 | `change-report-delivery` | Change reports and delivery |
+| 15 | `unfinished-work-tracking` | Tracking unfinished work |
+| 16 | `explicit-instruction-fidelity` | Following explicit instructions without unauthorized reinterpretation |
+| 17 | `repository-publication-hygiene` | Repository publication hygiene; private references and tool attribution stay out of published content |
 
 ---
 
@@ -68,6 +69,7 @@ agent-engineering-standards/
 ├── skills/
 │   ├── task-execution-governance/SKILL.md
 │   ├── user-intent-priority/SKILL.md
+│   ├── engineering-context-completeness/SKILL.md
 │   ├── data-first-execution/SKILL.md
 │   ├── code-asset-inventory/SKILL.md
 │   ├── interface-contract/SKILL.md
@@ -119,14 +121,14 @@ agent-engineering-standards/
 
 ## Profiles
 
-Not every team wants all 16 standards. A data team may need four; a solo developer may want two. Profiles are machine-readable YAML files that declare which skills a given working style requires.
+Not every team wants all 17 standards. A data team may need four; a solo developer may want two. Profiles are machine-readable YAML files that declare which skills a given working style requires.
 
 | Profile | Skills | Intended for |
 |---|---|---|
-| [`full.yaml`](profiles/full.yaml) | All 16 | Teams enforcing a complete engineering baseline |
-| [`data.yaml`](profiles/data.yaml) | 9 | Data engineering, analytics, and research work |
-| [`development.yaml`](profiles/development.yaml) | 10 | Day-to-day feature development |
-| [`lightweight.yaml`](profiles/lightweight.yaml) | 5 | Minimal guardrails for small or exploratory work |
+| [`full.yaml`](profiles/full.yaml) | All 17 | Teams enforcing a complete engineering baseline |
+| [`data.yaml`](profiles/data.yaml) | 11 | Data engineering, analytics, and research work |
+| [`development.yaml`](profiles/development.yaml) | 12 | Day-to-day feature development |
+| [`lightweight.yaml`](profiles/lightweight.yaml) | 7 | Minimal guardrails for small or exploratory work |
 
 Each profile directory contains a README explaining when to choose it and what it enforces.
 
@@ -255,6 +257,21 @@ python3 -m pytest tests/ -v           # Run the test suite
 ```
 
 The test suite runs entirely against temporary directories and never modifies a real project.
+
+---
+
+## Cursor Rules
+
+This repository ships two Cursor rule files. They are not skills: a rule is injected by Cursor itself on every prompt, whereas a skill is loaded by the agent when the task calls for it.
+
+| File | Scope | Contents |
+|---|---|---|
+| `.cursor/rules/engineering-context.mdc` | This repository | The context, logical completeness, and implementation authority constraints, with `alwaysApply: true` |
+| `~/.cursor/rules/global-engineering-behavior.mdc` | Every project | The global engineering behavior constraints, with `alwaysApply: true` |
+
+The project rule contains the same obligations as the `engineering-context-completeness` skill, so a user working in Cursor gets the constraints whether or not the skill is triggered.
+
+For behaviour that must apply in every project regardless of what is being worked on, add the global rule as well: `Cursor Settings` → `Rules` → `User Rules`. Rules entered there are stored with the Cursor account and are injected into every Agent chat; they are not stored in this repository.
 
 ---
 

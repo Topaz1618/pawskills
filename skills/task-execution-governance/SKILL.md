@@ -32,6 +32,7 @@ Select the corresponding standard based on the actual task.
 |---|---|
 | All engineering tasks | This standard, unfinished-work-tracking |
 | Any user message, before acting on it | user-intent-priority |
+| Any technical discussion, analysis, or change plan | engineering-context-completeness |
 | Data analysis and data processing | data-first-execution |
 | Code asset inspection and functional reuse | code-asset-inventory |
 | Adding or modifying modules | interface-contract, engineering-transparency |
@@ -54,9 +55,10 @@ When standards conflict, resolve them in the following order:
 2. Project-level architecture, data security, and compatibility constraints.
 3. task-execution-governance.
 4. user-intent-priority.
-5. engineering-transparency.
-6. Other specialized Skills.
-7. The Agent's own chosen implementation approach.
+5. engineering-context-completeness.
+6. engineering-transparency.
+7. Other specialized Skills.
+8. The Agent's own chosen implementation approach.
 
 A specialized Skill may supplement an upper-level standard, but may not overturn it without reason.
 
@@ -182,7 +184,15 @@ The classification categories, the interruption rules, the tool invocation gate,
 
 ---
 
-## X. Final Principle
+## X. Engineering Context and Logical Completeness
+
+Before a technical conclusion is presented or a change is planned, the problem context must be established, the chain of logic must be complete, current state must be distinguished from problem, recommendation, and item pending confirmation, and the scope of the change must be explicit.
+
+The context identification steps, the four information categories, the causal chain requirements, and the implementation plan format are specified in `engineering-context-completeness`.
+
+---
+
+## XI. Final Principle
 
 The Agent's goal is not to complete as many operations as possible.
 

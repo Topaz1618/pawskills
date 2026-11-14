@@ -4,6 +4,7 @@ description: Standards for day-to-day feature development.
 skills:
   - task-execution-governance
   - user-intent-priority
+  - engineering-context-completeness
   - code-asset-inventory
   - interface-contract
   - production-logging

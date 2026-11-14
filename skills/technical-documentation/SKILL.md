@@ -343,6 +343,7 @@ When the document is complete, check:
 4. Are the files actually read and generated named explicitly?
 5. Are any expressions used that a developer would not recognize, or that invite ambiguity?
 6. Could the same technical content be expressed more directly?
+7. Are the field names shown actual names from the code, rather than abbreviated forms the reader must decode?
 
 **Final requirement: when it is possible to name the file, do not talk about a "data artifact"; when it is possible to name a data record, do not invent an abstract concept; when it is possible to show the actual JSON, do not give only a type name. Technical documentation should help developers understand the engineering, not require them to first understand terminology the author invented.**
 

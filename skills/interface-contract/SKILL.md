@@ -138,6 +138,24 @@ Compatible extension is preferred.
 
 Fields must not be deleted or types changed directly without assessment.
 
+### 8.1 Existing Field Names Must Not Be Renamed on the Agent's Initiative
+
+An existing field name must not be changed on the agent's own initiative.
+
+Where historical data, interface compatibility, or a database migration is involved, the impact must be analyzed and a proposal put forward first, covering:
+
+1. Which callers, data sources, and consumers are affected.
+2. Whether historical data must be migrated, and how.
+3. Whether a compatibility window is needed for external consumers.
+4. Whether the two names must be carried simultaneously, and for how long.
+5. How the migration is verified.
+
+A name that is unclear may still be retained. A clearer name does not by itself authorize a rename.
+
+### 8.2 Relationship to Naming Rules
+
+How a new name is chosen is governed by `language-expression`, section IX, which forbids arbitrary abbreviation and compressed naming. Whether an existing name may be changed is governed by this section.
+
 ## IX. Exception Contract
 
 Exceptions must clearly distinguish:

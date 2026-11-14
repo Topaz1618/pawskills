@@ -2,7 +2,7 @@
 
 **Machine-readable definition:** [`../data.yaml`](../data.yaml)
 
-**Skill count:** 10
+**Skill count:** 11
 
 ---
 
@@ -21,6 +21,8 @@ Typical situations:
 
 - Existing data and historical results are checked before any re-collection or recomputation.
 - Every user message is classified before acting; a question is answered before anything is executed, and a message arriving mid-task interrupts the autonomous workflow.
+- Technical analysis establishes a complete chain of logic, and distinguishes current state, problem, recommendation, and items pending confirmation.
+- A complete implementation plan is output before any data processing or schema change, and the scope of the change is not expanded on the agent's initiative.
 - Incremental execution only: only the missing portion is added, never the whole dataset.
 - Raw data is stored separately from processed data, with source, time, hash, and size recorded.
 - Every significant transformation records its inputs, outputs, rules, and record counts.

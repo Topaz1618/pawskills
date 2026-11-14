@@ -58,6 +58,13 @@ Excludes: a convention that is followed in practice but written nowhere.
 
 Governed by `interface-contract`.
 
+### Current state
+A fact verified from the current code, configuration, or database. One of the four information categories used in every engineering analysis: current state, problem, recommendation, and item pending confirmation.
+
+Excludes: an inference, a plausible reading of the code that was not checked.
+
+Governed by `engineering-context-completeness`.
+
 ---
 
 ## D
@@ -176,6 +183,13 @@ Excludes: cleaning. Normalization makes shapes comparable; cleaning removes defe
 
 Governed by `data-audit-reproducibility`.
 
+### Name
+The identifier assigned to a variable, function, class, field, configuration key, or file, whose purpose is to state what the thing holds, counts, or represents.
+
+Excludes: an abbreviation that reduces the character count, and a shortened form whose meaning depends on having read the file that declares it.
+
+Governed by `language-expression`.
+
 ---
 
 ## O
@@ -205,6 +219,13 @@ Excludes: a guess. If the source is unclear it is recorded as unknown.
 
 Governed by `data-audit-reproducibility`.
 
+### Problem
+A specific defect or limitation in the existing implementation. One of the four information categories used in every engineering analysis: current state, problem, recommendation, and item pending confirmation.
+
+Excludes: a preference, or a wish for a different design that would cost nothing.
+
+Governed by `engineering-context-completeness`.
+
 ---
 
 ## R
@@ -215,6 +236,13 @@ The unmodified content as obtained from its source, stored separately from any p
 Excludes: parsed, cleaned, or summarized data. Once a record is transformed, it is no longer raw.
 
 Governed by `data-audit-reproducibility`.
+
+### Recommendation
+An improvement proposed on the basis of actual requirements, with its reason, effect, implementation approach, cost, and risk stated. One of the four information categories used in every engineering analysis: current state, problem, recommendation, and item pending confirmation.
+
+Excludes: the agent's own decision presented as a decision the user has already made.
+
+Governed by `engineering-context-completeness`.
 
 ### Reconciliation
 The check that counts across processing stages add up: raw count = successfully processed count + failure count.
@@ -252,12 +280,26 @@ Governed by `task-execution-governance`.
 
 ## T
 
+### To be confirmed
+Missing evidence, or a business requirement that is not yet settled. One of the four information categories used in every engineering analysis: current state, problem, recommendation, and item pending confirmation.
+
+Excludes: a decision the agent has already made, and a question raised only to avoid answering.
+
+Governed by `engineering-context-completeness`.
+
 ### Traceability
 The ability to link a reported result back to the code, data, and execution that produced it.
 
 Excludes: a narrative that connects the steps in prose.
 
 Governed by `engineering-transparency`.
+
+### Implementation plan
+The set of statements output before a code or database change: current implementation and files involved, planned changes, reasons, data structure and interface changes, compatibility and risks, testing approach, and the parts that will explicitly not be modified.
+
+Excludes: a restatement of the request, and a plan produced after the change has already been made.
+
+Governed by `engineering-context-completeness`.
 
 ### Truthful reporting
 Reporting the actual outcome of every operation — including failures, partial runs, skipped verification, and unfinished work — without softening it into a success.
@@ -314,6 +356,8 @@ Governed by `data-audit-reproducibility`, `scripts/install.py`.
 | As needed | State the condition | "As needed" leaves the trigger undefined and cannot be verified. |
 | Optimise / improve | Name the property being changed | "Improve" names no target, so there is nothing to check afterwards. |
 | Probably, should be fine | — | An unverified prediction presented as an outcome. |
+| TBD | To be confirmed | "TBD" names neither what is missing nor what would resolve it; the full form states the information category explicitly. |
+| n_, cnt_, tmp_, cfg_ | A complete expression such as `count`, `total`, `temporary`, `configuration` | An opaque prefix states no meaning on its own, and the reader has to open the file to learn what it holds. |
 | Legacy | Historical, retained for compatibility, superseded | "Legacy" implies the code is expendable; often it is still in production. |
 
 ---
@@ -323,4 +367,5 @@ Governed by `data-audit-reproducibility`, `scripts/install.py`.
 - [Engineering Principles](engineering-principles.md) — why the standards exist.
 - [Audit Data Model](audit-data-model.md) — the concrete record structures.
 - [User Intent Priority](../skills/user-intent-priority/SKILL.md) — how a user message is classified and what it calls for.
+- [Engineering Context Completeness](../skills/engineering-context-completeness/SKILL.md) — how the problem context is established and how a change is planned before it is made.
 - [Task Execution Governance](../skills/task-execution-governance/SKILL.md) — how scope and standards are selected.

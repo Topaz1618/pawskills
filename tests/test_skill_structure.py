@@ -17,6 +17,7 @@ installer = load_installer()
 EXPECTED_SKILLS = {
     "task-execution-governance",
     "user-intent-priority",
+    "engineering-context-completeness",
     "data-first-execution",
     "code-asset-inventory",
     "interface-contract",

@@ -2,7 +2,7 @@
 
 **Machine-readable definition:** [`../full.yaml`](../full.yaml)
 
-**Skill count:** 16 (all standards)
+**Skill count:** 17 (all standards)
 
 ---
 
@@ -21,6 +21,8 @@ Typical situations:
 
 - Every task is scoped before execution; the required checks depend on the size of the change.
 - Every user message is classified before acting; a question is answered before anything is executed, and a message arriving mid-task interrupts the autonomous workflow.
+- Technical analysis establishes a complete chain of logic, and distinguishes current state, problem, recommendation, and items pending confirmation.
+- A complete implementation plan is output before any code or database change, and the scope of the change is not expanded on the agent's initiative.
 - Existing data and existing code are inspected before anything is re-run or re-written.
 - New modules have a defined input contract, output contract, and invocation contract.
 - Raw data is preserved separately from processed results, and every transformation is recorded.
@@ -29,6 +31,7 @@ Typical situations:
 - Every change is delivered with a file-level and function-level report.
 - Work discovered but not completed is recorded rather than silently dropped.
 - Technical documentation reflects the actual implementation.
+- Code identifiers state their actual meaning; words are not abbreviated to reduce character count, and an opaque prefix such as `n_` or `tmp_` is not used.
 - Explicitly specified operations, paths, and file scopes are followed literally, without unauthorized reinterpretation or expansion.
 - Nothing published to a public repository identifies a person, an organization, an internal system, or the tool that produced it.
 

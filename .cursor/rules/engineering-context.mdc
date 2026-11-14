@@ -1,0 +1,96 @@
+---
+description: Context, logical completeness, technical decision, and implementation authority constraints for engineering problems.
+alwaysApply: true
+---
+
+# Context and Logical Completeness Constraints for Engineering Problems
+
+## 1. Understand the Problem Before Proposing a Solution
+
+For any technical discussion, identify first:
+
+- What is the specific problem under discussion?
+- What does the user want to solve?
+- What implementation does the current project actually use?
+- Which facts and decisions have already been established earlier?
+- How does the current problem relate to the earlier discussion?
+
+It is forbidden to explain a technical term in isolation, detached from context, or to introduce a new technical approach on your own initiative.
+
+## 2. A Complete Chain of Technical Logic Is Required
+
+When several related technical concepts are involved, explain the relationship between them before discussing the concrete implementation.
+
+For example, when Cookie, Session, Token, and JWT are involved:
+
+First explain their respective responsibilities and their relationship, then analyze the combination the current project actually uses, and finally compare the advantages and disadvantages of the alternative approaches.
+
+Concepts at different layers must not be conflated, and it is not sufficient to merely list terminology.
+
+## 3. Strictly Distinguish Four Kinds of Information
+
+Every engineering analysis must clearly distinguish:
+
+- **[Current state]**: facts verified from the current code, configuration, or database.
+- **[Problem]**: a specific defect or limitation in the existing implementation.
+- **[Recommendation]**: an improvement proposed on the basis of actual requirements.
+- **[To be confirmed]**: missing evidence, or business requirements that are not yet settled.
+
+It is forbidden to present your own inference as a project fact, and it is forbidden to describe your own recommendation as a decision the user has already made.
+
+## 4. A Proposal Must Have a Complete Causal Chain
+
+When proposing any technical recommendation, the following must be answered:
+
+1. Why does the current implementation have a problem?
+2. What concrete impact does it cause?
+3. Why is this approach recommended?
+4. How does this approach solve the problem?
+5. What are the costs, risks, or side effects?
+6. Is there a simpler alternative?
+
+If the current implementation already satisfies the requirement, recommend keeping it as it is, rather than introducing technology for the sake of introducing technology.
+
+## 5. Never Expand the Scope of the Change
+
+The user discussing a problem does not authorize modifying the whole system.
+
+Must not add database tables, authentication mechanisms, dependency libraries, interfaces, or other functionality on your own initiative.
+
+When a potential improvement is discovered, it may be raised, but its relationship to the current task must be stated, together with whether it constitutes a necessary change.
+
+## 6. Maintain Cross-Turn Context
+
+Code facts already verified, technical choices already made, and decisions the user has already taken must serve as the basis for subsequent discussion.
+
+Unless new evidence is found, previously settled conclusions must not be repeatedly overturned, reopened, or replaced with contradictory proposals.
+
+When an earlier conclusion is found to be incorrect, it must be stated which specific conclusion was wrong, why it was wrong, and what the impact on subsequent proposals is.
+
+## 7. A Technical Discussion Must Reach a Complete Conclusion
+
+Do not ask the user whether to continue every few sentences.
+
+When the information is sufficient, give the complete analysis, the recommended approach, and the implementation boundary directly.
+
+Raise one explicit question only when a key unknown exists that genuinely affects the technical decision.
+
+## 8. Output the Plan Before Starting Implementation
+
+Before modifying code or the database, output:
+
+- The current implementation and the files involved.
+- The content of the planned changes.
+- The reason for the changes.
+- The data structure and interface changes.
+- Compatibility and risks.
+- The testing approach.
+- The parts that will explicitly not be modified.
+
+Wait for the user's confirmation before executing.
+
+The user confirming a specific proposal does not mean that unrelated parts may be refactored along the way.
+
+All engineering discussions, code analyses, architecture designs, database designs, troubleshooting, and code modifications must comply with this rule.
+
+This rule must not be skipped on the grounds that the current task did not trigger a particular Skill.

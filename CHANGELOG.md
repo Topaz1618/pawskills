@@ -11,6 +11,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- `skills/engineering-context-completeness/SKILL.md` — Engineering context and logical completeness. Requires the problem to be understood before a solution is proposed; requires a complete chain of technical logic before concrete implementation is discussed; requires strict separation of current state, problem, recommendation, and item pending confirmation; requires a complete causal chain from every recommendation to its cost and risk, including the recommendation to keep the existing implementation when it already satisfies the requirement; forbids unauthorized expansion of the change scope; requires cross-turn continuity of verified facts and user decisions; requires a complete conclusion rather than repeated confirmation requests; and requires a full implementation plan before any code or database change.
+- `.cursor/rules/engineering-context.mdc` — The same constraints as a Cursor project rule with `alwaysApply: true`, so they apply on every prompt in this repository rather than only when a skill is triggered.
 - `references/engineering-principles.md` — The eleven principles underlying every standard, and how they map to the skills.
 - `references/terminology.md` — The controlled vocabulary, including the terms the repository deliberately avoids.
 - `references/audit-data-model.md` — Concrete record structures (source, transformation, reconciliation, execution, modification, privacy) behind `data-audit-reproducibility`.
@@ -23,17 +25,24 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- All four profiles now include `engineering-context-completeness`, so the context and completeness constraints cannot be opted out of.
 - All four profiles now include `repository-publication-hygiene`, so it cannot be opted out of.
 
 - All four profiles now include `explicit-instruction-fidelity`. The standard was previously shipped but not installable through any profile.
 - All four profiles now include `user-intent-priority`.
-- `profiles/*.yaml` skill counts and the profile READMEs updated to match: full 16, development 11, data 10, lightweight 6.
-- `README.md` and `README.zh-CN.md` list all 16 standards; the standards table and repository layout were updated accordingly.
+- `profiles/*.yaml` skill counts and the profile READMEs updated to match: full 17, development 12, data 11, lightweight 7.
+- `README.md` and `README.zh-CN.md` list all 17 standards; the standards table and repository layout were updated accordingly.
 - `task-execution-governance` now references skills by their directory names. The previous references to `engineering-transparency-standard`, `data-audit-reproducibility-standard`, and `production-logging-standard` did not resolve to any skill.
 - `task-execution-governance` section IX was reduced to a pointer to `user-intent-priority`, and `user-intent-priority` was added to its task type table and standard priority list.
 - `technical-documentation` sections IX and X add the natural-language and terminology rules, and the required organization of a functional module document.
 - `language-expression` section VIII forbids colloquial expression and non-standard terminology across all forms of output.
+- `language-expression` section IX forbids arbitrary abbreviation and compressed code naming. It covers variable names, function and class names, JSON, YAML, and configuration keys, database column names, file and directory names, data structure fields, API parameter names, and branch names; requires a complete expression for a quantity such as `page_count` rather than `n_pages`; forbids opaque single-letter prefixes such as `n_`, `cnt_`, `tmp_`, and `cfg_`; forbids forcing fields of different meanings into similar names for the sake of consistency; requires a new data structure to be understandable from its field names alone; and states that the priority is semantic clarity rather than a smaller character count or faster typing.
+- `interface-contract` section 8.1 states that an existing field name must not be renamed on the agent's own initiative, and requires the impact on callers, historical data, migration, and compatibility to be analyzed and a proposal put forward first.
+- `references/terminology.md` defines name, and lists the opaque prefixes the repository does not use.
 - `references/terminology.md` and `references/engineering-principles.md` cover the new standard and the principle that user intent precedes the agent's plan.
+- `references/terminology.md` now defines current state, problem, recommendation, to be confirmed, and implementation plan, and `references/engineering-principles.md` maps the new standard to the principle that reasoning is complete before action.
+
+- `tests/test_skill_structure.py` — The expected skill set now includes `engineering-context-completeness`.
 
 ### Fixed
 

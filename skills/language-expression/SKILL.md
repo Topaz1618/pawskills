@@ -146,7 +146,54 @@ This standard applies to all languages, all forms of output, and all project mod
 
 ---
 
-## IX. Final Principle
+## IX. Arbitrary Abbreviation and Compressed Code Naming Are Forbidden
+
+All code variable names, function names, JSON fields, database fields, configuration keys, file names, and data structure fields must use names whose meaning is explicit and easy to understand.
+
+### 9.1 Rules
+
+1. Abbreviating a word in order to reduce the number of characters is forbidden.
+2. Single-letter prefixes and opaque abbreviations such as `n_`, `cnt_`, `tmp_`, and `cfg_` are forbidden, unless they belong to an existing project convention or carry a well-established industry-standard meaning.
+3. When expressing a quantity, prefer a complete expression such as `count`, `total`, or `number`. Use `page_count`, not `n_pages`.
+4. When a name expresses a time, a status, a type, a quantity, an index, or similar information, it must state the actual meaning of the field explicitly.
+5. Fields whose meanings differ must not be forced into similar names in the name of consistency.
+6. A newly created data structure must be understandable from its field names alone by a developer who did not take part in the implementation.
+7. The naming conventions already used by the current project take precedence. If an existing name is unclear, the unclear name must not be copied into new code.
+8. An existing field name must not be changed on the agent's own initiative. Where historical data, interface compatibility, or a database migration is involved, the impact must be analyzed and a proposal put forward first.
+
+### 9.2 Scope
+
+This section covers every identifier that carries meaning in a project:
+
+- Variable names.
+- Function and method names.
+- Class and type names.
+- JSON, YAML, and configuration keys.
+- Database column names.
+- File and directory names.
+- Data structure fields.
+- API parameter names.
+- Branch and tag names.
+
+It applies to newly created names and to names introduced by a migration, a refactor, or an interface change.
+
+### 9.3 Relationship to Interface Contracts
+
+The rules in section IX govern how a name is chosen. The rules about renaming an existing field, and about field consistency across modules, are specified in `interface-contract`. A name that satisfies section IX may still be forbidden to change, because the interface contract governs compatibility.
+
+Rule 8 above states the prohibition itself. `interface-contract` section 8.1 states the analysis that must be produced before a rename is proposed.
+
+### 9.4 Judgement Standard
+
+Naming must prioritize semantic clarity over a smaller character count, faster typing, or a convention that merely looks like programmer habit.
+
+A name passes this standard when a reader can state what it holds, what it counts, or what it represents without opening the file that declares it.
+
+**Final requirement: an identifier is written for the developer who reads it later, not for the author who is typing it now.**
+
+---
+
+## X. Final Principle
 
 It is acceptable to be concise, but not vague.
 

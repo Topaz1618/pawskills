@@ -1,6 +1,6 @@
 # AI Agent 工程规范集
 
-面向 AI 编码 Agent 的 **16 条工程规范**，以可移植的 Markdown Skill 形式分发。
+面向 AI 编码 Agent 的 **17 条工程规范**，以可移植的 Markdown Skill 形式分发。
 
 每一条规范都是一份自包含的指令文档。Agent 读完之后，会确切知道对自己的要求：任务范围如何界定、已有代码何时必须复用、日志该记录什么、如何验证、以及如何如实汇报结果。
 
@@ -26,26 +26,27 @@ AI 编码 Agent 的失败方式是有规律可循的。这些规范来自真实�
 
 ---
 
-## 16 条规范
+## 17 条规范
 
 | 序号 | Skill | 核心职责 |
 |---|---|---|
 | 01 | `task-execution-governance` | 任务识别、执行范围、规范协调 |
 | 02 | `user-intent-priority` | 用户意图识别、响应优先级、工具调用闸门 |
-| 03 | `data-first-execution` | 已有数据优先，禁止无依据重跑 |
-| 04 | `code-asset-inventory` | 代码资产盘点、函数复用 |
-| 05 | `interface-contract` | 接口契约、数据结构统一 |
-| 06 | `data-audit-reproducibility` | 原始数据、数据审计、复现 |
-| 07 | `production-logging` | 原始日志、执行路径、异常记录 |
-| 08 | `testing-verification` | 测试、验证、独立审查 |
-| 09 | `engineering-transparency` | 工程透明度、文件与函数说明 |
-| 10 | `technical-documentation` | 技术文档真实性与完整性 |
-| 11 | `documentation-structure` | 文档组织和阅读顺序 |
-| 12 | `language-expression` | 语言表达和术语规范 |
-| 13 | `change-report-delivery` | 变更报告与交付 |
-| 14 | `unfinished-work-tracking` | 未完成事项追踪 |
-| 15 | `explicit-instruction-fidelity` | 忠实执行明确指令，禁止擅自改写 |
-| 16 | `repository-publication-hygiene` | 仓库发布卫生；私有引用与工具署名不得进入公开内容 |
+| 03 | `engineering-context-completeness` | 问题上下文、逻辑链、改动前实施方案 |
+| 04 | `data-first-execution` | 已有数据优先，禁止无依据重跑 |
+| 05 | `code-asset-inventory` | 代码资产盘点、函数复用 |
+| 06 | `interface-contract` | 接口契约、数据结构统一 |
+| 07 | `data-audit-reproducibility` | 原始数据、数据审计、复现 |
+| 08 | `production-logging` | 原始日志、执行路径、异常记录 |
+| 09 | `testing-verification` | 测试、验证、独立审查 |
+| 10 | `engineering-transparency` | 工程透明度、文件与函数说明 |
+| 11 | `technical-documentation` | 技术文档真实性与完整性 |
+| 12 | `documentation-structure` | 文档组织和阅读顺序 |
+| 13 | `language-expression` | 语言表达和术语规范 |
+| 14 | `change-report-delivery` | 变更报告与交付 |
+| 15 | `unfinished-work-tracking` | 未完成事项追踪 |
+| 16 | `explicit-instruction-fidelity` | 忠实执行明确指令，禁止擅自改写 |
+| 17 | `repository-publication-hygiene` | 仓库发布卫生；私有引用与工具署名不得进入公开内容 |
 
 ---
 
@@ -64,6 +65,7 @@ agent-engineering-standards/
 ├── skills/
 │   ├── task-execution-governance/SKILL.md
 │   ├── user-intent-priority/SKILL.md
+│   ├── engineering-context-completeness/SKILL.md
 │   ├── data-first-execution/SKILL.md
 │   ├── code-asset-inventory/SKILL.md
 │   ├── interface-contract/SKILL.md
@@ -116,14 +118,14 @@ agent-engineering-standards/
 
 ## Profiles
 
-不是所有团队都需要全部 16 条规范。数据团队可能只需要 4 条，独立开发者可能只需要 2 条。Profile 是机器可读的 YAML 文件，声明某种工作方式需要哪些 Skill。
+不是所有团队都需要全部 17 条规范。数据团队可能只需要 4 条，独立开发者可能只需要 2 条。Profile 是机器可读的 YAML 文件，声明某种工作方式需要哪些 Skill。
 
 | Profile | 包含规范 | 适用场景 |
 |---|---|---|
-| [`full.yaml`](profiles/full.yaml) | 全部 16 条 | 需要完整工程基线的团队 |
-| [`data.yaml`](profiles/data.yaml) | 9 条 | 数据工程、分析与研究类工作 |
-| [`development.yaml`](profiles/development.yaml) | 10 条 | 日常功能开发 |
-| [`lightweight.yaml`](profiles/lightweight.yaml) | 5 条 | 小型或探索性工作的最低护栏 |
+| [`full.yaml`](profiles/full.yaml) | 全部 17 条 | 需要完整工程基线的团队 |
+| [`data.yaml`](profiles/data.yaml) | 11 条 | 数据工程、分析与研究类工作 |
+| [`development.yaml`](profiles/development.yaml) | 12 条 | 日常功能开发 |
+| [`lightweight.yaml`](profiles/lightweight.yaml) | 7 条 | 小型或探索性工作的最低护栏 |
 
 每个 profile 目录下都有一个 README，说明何时选择它以及它具体约束了什么。
 
@@ -252,6 +254,21 @@ python3 -m pytest tests/ -v           # 运行测试
 ```
 
 测试全部在临时目录中执行，不会修改真实项目。
+
+---
+
+## Cursor 规则
+
+本仓库提供两份 Cursor 规则文件。它们不是 Skill：规则由 Cursor 自己在每次提问时注入，而 Skill 由 Agent 在任务需要时才加载。
+
+| 文件 | 生效范围 | 内容 |
+|---|---|---|
+| `.cursor/rules/engineering-context.mdc` | 本仓库 | 上下文、逻辑完整性与实施权限约束，`alwaysApply: true` |
+| `~/.cursor/rules/global-engineering-behavior.mdc` | 所有项目 | 全局工程行为约束，`alwaysApply: true` |
+
+项目规则与 `engineering-context-completeness` Skill 的义务一致，因此在 Cursor 中无论该 Skill 是否被触发，约束都生效。
+
+若需要在所有项目中生效，而不限于当前处理的工作内容，请同时添加全局规则：`Cursor Settings` → `Rules` → `User Rules`。填在这里的规则保存在 Cursor 账号中，并注入每一次 Agent 对话；它们不保存在本仓库。
 
 ---
 

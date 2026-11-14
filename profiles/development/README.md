@@ -2,7 +2,7 @@
 
 **Machine-readable definition:** [`../development.yaml`](../development.yaml)
 
-**Skill count:** 11
+**Skill count:** 12
 
 ---
 
@@ -21,6 +21,8 @@ Typical situations:
 
 - The task is classified before execution; checks scale with the size of the change.
 - Every user message is classified before acting; a question is answered before anything is executed, and a message arriving mid-task interrupts the autonomous workflow.
+- Technical analysis establishes a complete chain of logic, and distinguishes current state, problem, recommendation, and items pending confirmation.
+- A complete implementation plan is output before any code change, and the scope of the change is not expanded on the agent's initiative.
 - Existing modules and functions are inspected before a new implementation is written.
 - New or modified modules have a defined input contract, output contract, and invocation contract.
 - Logs record what actually happened, including failures and fallback paths.
